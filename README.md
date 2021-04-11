@@ -13,13 +13,50 @@ This application is built using:
 - Maven
 
 ### Running the project
+
 To run the application:
 ``` 
 mvn clean spring-boot:run
 ```
+
+While the application is running you can access the database connecting to:
+``` 
+http://localhost:8080/h2-console
+```
+
+With the datasource-url:
+```
+jdbc:h2:mem:AZ;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+```
 To run the tests:
 ``` 
 mvn test
+```
+
+### Using the endpoints
+
+#### POST 127.0.0.1:8080/client
+```
+{
+   "names":"Richard Cham"
+}
+```
+
+#### POST 127.0.0.1:8080/vehicle
+```
+{
+   "plate":"XYZ-470",
+   "model": "TOYOTA",
+   "clientId": 1
+}
+```
+
+#### POST 127.0.0.1:8080/repair
+```
+{
+"vehicleId":3,
+"comments": "Sin comentarios"
+}
 ```
 
 ### Reference Documentation
